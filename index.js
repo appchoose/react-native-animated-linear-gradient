@@ -82,6 +82,7 @@ class AnimatedGradient extends Component {
       [color0, color1].map(animatedColor => {
         return Animated.timing(animatedColor, {
           toValue: customColors.length,
+           useNativeDriver:true,
           duration: customColors.length * speed,
           easing: Easing.linear
         })
@@ -113,7 +114,8 @@ class AnimatedGradient extends Component {
       });
 
     return (
-      <Animated.LinearGradient
+        <Animated.LinearGradient
+       useNativeDriver={true}
         style={[styles.linearGradient]}
         points={points}
         color0={interpolatedColors[0]}
